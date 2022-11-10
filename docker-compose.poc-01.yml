@@ -1,0 +1,9 @@
+version: "2"
+services:
+  srly-ose-viewer:
+    image: screenly/srly-ose-viewer
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.poc-01
+    stdin_open: true
+    tty: true
