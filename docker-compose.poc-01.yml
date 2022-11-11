@@ -7,3 +7,4 @@ services:
       dockerfile: docker/Dockerfile.poc-01
     stdin_open: true
     tty: true
+    command: bash
