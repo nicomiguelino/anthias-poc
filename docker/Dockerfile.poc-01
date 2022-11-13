@@ -5,6 +5,6 @@ RUN apt-get update && \
         vlc && \
     apt-get clean
 
-COPY ./assets/first-youtube-video .
+COPY ./assets/first-youtube-video.mp4 .
 
 RUN useradd -g video viewer
