@@ -4,3 +4,5 @@ RUN apt-get update && \
     apt-get -y install --no-install-recommends \
         vlc && \
     apt-get clean
+
+RUN useradd -g video viewer
