@@ -6,6 +6,9 @@ services:
       context: .
       dockerfile: docker/Dockerfile.poc-01
     command: bash
+    devices:
+      - "/dev/vchiq:/dev/vchiq"
     privileged: true
+    restart: always
     stdin_open: true
     tty: true
