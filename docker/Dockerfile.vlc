@@ -2,10 +2,7 @@ FROM balenalib/raspberrypi3:buster
 
 RUN apt-get update && \
     apt-get -y install \
-        vlc \
-        dbus* \
-        alsa-utils \
-        pulseaudio
+        vlc
 
 WORKDIR /usr/src/app
 COPY ./assets/first-youtube-video.mp4 .

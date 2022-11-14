@@ -6,9 +6,6 @@ services:
       context: .
       dockerfile: docker/Dockerfile.vlc
     command: bash
-    devices:
-      - "/dev/vchiq:/dev/vchiq"
-      - "/dev/snd:/dev/snd"
     privileged: true
     restart: always
     stdin_open: true
