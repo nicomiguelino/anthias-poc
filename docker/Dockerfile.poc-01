@@ -1,10 +1,14 @@
 # FROM balenalib/raspberrypi3:buster
 FROM debian:bullseye
 
+# RUN apt-get update && \
+#     apt-get -y install --no-install-recommends \
+#         vlc
+#     apt-get clean
+
 RUN apt-get update && \
-    apt-get -y install --no-install-recommends \
+    apt-get -y install \
         vlc
-    # apt-get clean
 
 # RUN apt-get update && \
 #     apt-get -y install --no-install-recommends \
@@ -30,7 +34,7 @@ RUN apt-get update && \
 #         libgles2-mesa \
 #         libgles2-mesa-dev \
 #         libglib2.0-dev \
-#         # libgst-dev \
+#         libgst-dev \
 #         libicu-dev \
 #         libinput-dev \
 #         libiodbc2-dev \
@@ -49,7 +53,7 @@ RUN apt-get update && \
 #         librsvg2-common \
 #         libsdl2-dev \
 #         libsnappy-dev \
-#         libsqlite0-dev \
+#         # libsqlite0-dev \
 #         libsqlite3-dev \
 #         # libsrtp0-dev \
 #         libsrtp2-dev \
@@ -95,9 +99,10 @@ RUN apt-get update && \
 #         # omxplayer \
 #         psmisc \
 #         python-dev \
-#         python-gobject \
-#         python-netifaces \
-#         python-pip \
+#         # python-gobject \
+#         # python-netifaces \
+#         # python-pip \
+#         python3-pip \
 #         python-setuptools \
 #         vlc \
 #         ttf-wqy-zenhei \
