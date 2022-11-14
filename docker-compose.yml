@@ -4,7 +4,7 @@ services:
     image: video-playback
     build:
       context: .
-      dockerfile: docker/Dockerfile.poc-01
+      dockerfile: docker/Dockerfile.vlc
     command: bash
     devices:
       - "/dev/vchiq:/dev/vchiq"
