@@ -1,7 +1,7 @@
 version: "2"
 services:
   srly-ose-viewer:
-    image: screenly/srly-ose-viewer
+    image: video-playback
     build:
       context: .
       dockerfile: docker/Dockerfile.poc-01
