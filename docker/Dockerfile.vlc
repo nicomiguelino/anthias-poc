@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY ./assets/first-youtube-video.mp4 .
 
 RUN useradd -ms "/bin/bash" viewer && \
-    usermod -aG video viewer && \
+    sudo usermod -aG video,sudo viewer && \
     passwd -d viewer
 
 USER viewer
