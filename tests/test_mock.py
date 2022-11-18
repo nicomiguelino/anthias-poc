@@ -2,8 +2,8 @@ import unittest
 from datetime import datetime
 from nose.plugins.attrib import attr
 from mock import MagicMock, Mock
-
-from src.my_calendar import is_weekday
+from requests.exceptions import Timeout
+from src.my_calendar import get_holidays, is_weekday
 
 
 class ProductionClass:
@@ -29,3 +29,10 @@ class MockTestCase(unittest.TestCase):
 
         mock_datetime.today.return_value = saturday
         self.assertFalse(is_weekday(mock_datetime))
+
+    def test_get_holidays_timeout(self):
+        mock_requests = Mock()
+        mock_requests.get.side_effect = Timeout
+
+        with self.assertRaises(Timeout):
+            get_holidays(mock_requests)
