@@ -17,5 +17,5 @@ docker-compose -f docker-compose.python.yml up -d
 For instance, if you want to run mock-related test cases, run the following:
 
 ```bash
-docker compose -f docker-compose.python.yml exec mock-sandbox nosetests mock_sandbox/
+docker compose -f docker-compose.python.yml exec mock-sandbox nosetests
 ```
