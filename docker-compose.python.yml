@@ -1,0 +1,12 @@
+version: "2"
+services:
+  mock-sandbox:
+    image: mock-sandbox
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.python
+    command: bash
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/usr/src/app

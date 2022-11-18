@@ -1,0 +1,25 @@
+FROM debian:buster
+
+RUN apt-get -y update && \
+    apt-get -y install --no-install-recommends \
+        build-essential \
+        curl \
+        git \
+        git-core \
+        python-dev \
+        python-pip && \
+    apt-get clean
+
+ADD requirements/requirements.python.txt /tmp/requirements.python.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.python.txt
+
+RUN mkdir -p /usr/src/app
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+ARG GIT_HASH
+ENV GIT_HASH=$GIT_HASH
+ARG GIT_SHORT_HASH
+ENV GIT_SHORT_HASH=$GIT_SHORT_HASH
+ARG GIT_BRANCH
+ENV GIT_BRANCH=$GIT_BRANCH
