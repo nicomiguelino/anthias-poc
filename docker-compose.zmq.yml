@@ -1,0 +1,11 @@
+version: "2"
+services:
+  zmq-main:
+    build:
+      context: ./zmq_poc
+      dockerfile: Dockerfile.zmq
+    command: bash
+    image: zmq-poc
+    tty: true
+    volumes:
+      - ./zmq_poc:/usr/src/app
