@@ -9,3 +9,21 @@ services:
     tty: true
     volumes:
       - ./zmq_poc:/usr/src/app
+  zmq-publisher:
+    build:
+      context: ./zmq_poc
+      dockerfile: Dockerfile.pub.zmq
+    command: bash
+    image: zmq-pub
+    tty: true
+    volumes:
+      - ./zmq_poc:/usr/src/app
+  zmq-subscriber:
+    build:
+      context: ./zmq_poc
+      dockerfile: Dockerfile.sub.zmq
+    command: bash
+    image: zmq-sub
+    tty: true
+    volumes:
+      - ./zmq_poc:/usr/src/app
