@@ -1,3 +1,4 @@
+# @TODO: Refactor common lines into a base image.
 FROM balenalib/raspberrypi3:buster
 
 RUN apt-get -y update && \
@@ -9,6 +10,8 @@ RUN apt-get -y update && \
 
 COPY requirements/requirements.main.txt /tmp/requirements.txt
 RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
+
+COPY settings.py .
 
 WORKDIR /usr/src/app
 COPY ./publisher.py .

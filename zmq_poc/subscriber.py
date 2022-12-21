@@ -1,9 +1,10 @@
 import json
 import zmq
+
 from time import sleep
 
-PORT = 2000
-TOPIC = 'main'
+from settings import PORT, TOPIC
+
 
 context = zmq.Context()
 socket = context.socket(zmq.SUB)

@@ -4,8 +4,9 @@ import zmq
 from random import randint
 from time import sleep
 
-PORT = 2000
-TOPIC = 'main'
+from settings import PORT, TOPIC
+
+
 SONGS = [
     {
         'song': 'Hungry Like the Wolf',
