@@ -8,7 +8,19 @@ from settings import PORT, TOPIC
 
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
-socket.connect(f'tcp://zmq-publisher:{PORT}')
+
+'''
+Use the line below if connecting to a container using
+bridged networking.
+'''
+# socket.connect(f'tcp://zmq-publisher:{PORT}')
+
+'''
+Use the line below if connecting to a container using
+host networking.
+'''
+socket.connect(f'tcp://host.docker.internal:{PORT}')
+
 socket.subscribe(topic=TOPIC)
 
 try:

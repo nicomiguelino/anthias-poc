@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile.pub.zmq
     command: bash
     image: zmq-pub
+    network_mode: host
     restart: always
     tty: true
     volumes:
@@ -15,6 +16,8 @@ services:
       context: ./zmq_poc
       dockerfile: Dockerfile.sub.zmq
     command: bash
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     image: zmq-sub
     restart: always
     tty: true
