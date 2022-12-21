@@ -1,0 +1,15 @@
+version:  "2"
+services:
+  nginx-poc:
+    build:
+      context: ./nginx_poc
+      dockerfile: Dockerfile.nginx
+    # TODO NICO: Remove if not needed.
+    # command: bash
+    # TODO NICO: Remove if not neeeded.
+    command: "/usr/sbin/nginx -g 'daemon off;'"
+    image: nginx-poc
+    ports:
+      - "80:80"
+    # TODO NICO: Remove if not needed.
+    # tty: true
