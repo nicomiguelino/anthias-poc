@@ -12,4 +12,4 @@ COPY nginx.conf /etc/nginx/sites-enabled/poc.conf
 RUN rm -f /etc/nginx/sites-enabled/default
 
 RUN mkdir -p /data/www
-COPY index.html /data/www
+COPY index.html hello.html /data/www
