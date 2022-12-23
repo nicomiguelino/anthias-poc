@@ -6,10 +6,17 @@ RUN apt-get -y update && \
         less \
         python3 \
         python3-dev \
-        python3-pip
+        python3-pip \
+        tree
 
 COPY nginx.conf /etc/nginx/sites-enabled/poc.conf
 RUN rm -f /etc/nginx/sites-enabled/default
 
-RUN mkdir -p /data/www
+RUN mkdir -p /data/www && \
+    mkdir -p /data/www/hotspot && \
+    mkdir -p /tmp/hotspot
+
 COPY index.html hello.html /data/www
+COPY hotspot.html /tmp/hotspot
+
+RUN echo "alias ls='ls --color=auto'" >> ${HOME}/.bashrc
