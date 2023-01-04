@@ -1,7 +1,16 @@
 version: "2"
 services:
-  dbus-poc-main:
-    image: 'nicomiguelino/dbus-poc-main'
+  srly-ose-wifi-connect:
+    image: screenly/srly-ose-wifi-connect
     build: .
-    command: bash
-    tty: true
+    environment:
+      PORTAL_LISTENING_PORT: 8000
+      CHECK_CONN_FREQ: 10
+      PORTAL_SSID: 'Anthias WiFi Connect 2'
+    restart: "on-failure"
+    network_mode: host
+    privileged: true
+    volumes:
+      - type: bind
+        source: /run/dbus/system_bus_socket
+        target: /run/dbus/system_bus_socket
