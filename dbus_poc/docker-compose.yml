@@ -1,0 +1,7 @@
+version: "2"
+services:
+  dbus-poc-main:
+    image: 'nicomiguelino/dbus-poc-main'
+    build: .
+    command: bash
+    tty: true
