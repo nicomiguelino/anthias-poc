@@ -36,6 +36,7 @@ try:
     while True:
         index = randint(0, len(SONGS) - 1)
         serialized = json.dumps(SONGS[index])
+        print('Sending a message...')
         socket.send_string(f'{TOPIC} {serialized}')
         sleep(1)
 except KeyboardInterrupt:

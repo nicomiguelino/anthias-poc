@@ -2,7 +2,7 @@ version: "2"
 services:
   zmq-publisher:
     build:
-      context: ./zmq_poc
+      context: .
       dockerfile: Dockerfile.pub.zmq
     command: bash
     image: zmq-pub
@@ -10,10 +10,10 @@ services:
     restart: always
     tty: true
     volumes:
-      - ./zmq_poc:/usr/src/app
+      - ./:/usr/src/app
   zmq-subscriber:
     build:
-      context: ./zmq_poc
+      context: .
       dockerfile: Dockerfile.sub.zmq
     command: bash
     extra_hosts:
@@ -22,4 +22,4 @@ services:
     restart: always
     tty: true
     volumes:
-      - ./zmq_poc:/usr/src/app
+      - ./:/usr/src/app
