@@ -1,0 +1,8 @@
+version: "2"
+services:
+  jq-main:
+    image: nicomiguelino/jq-playground
+    build:
+      context: .
+      args:
+        WC_DL_URL: 'https://api.github.com/repos/balena-io/wifi-connect/releases/latest'
