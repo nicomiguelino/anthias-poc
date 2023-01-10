@@ -1,0 +1,14 @@
+version: "2"
+services:
+  restart-main:
+    image: nicomiguelino/restart-main
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # TODO: Pick your (restart) poison.
+    # restart: 'always'
+    # restart: 'unless-stopped'
+    # restart: 'on-failure'
+    restart: 'on-failure:5'
+    volumes:
+      - ./scripts/start.sh:/usr/src/app/start.sh
