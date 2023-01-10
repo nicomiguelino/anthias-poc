@@ -5,4 +5,4 @@ services:
     build:
       context: .
       args:
-        WC_DL_URL: 'https://api.github.com/repos/balena-io/wifi-connect/releases/latest'
+        WC_DL_URL: 'https://api.github.com/repos/balena-os/wifi-connect/releases/40990455'
