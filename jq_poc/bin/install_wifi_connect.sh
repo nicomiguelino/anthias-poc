@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [[ "$TARGET_PLATFORM" = "linux/arm/v6" ]]; then
     architecture='rpi'
 elif [[ "$TARGET_PLATFORM" = "linux/arm/v7" ]]; then
