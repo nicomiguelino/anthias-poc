@@ -6,3 +6,4 @@ services:
       context: .
       args:
         WC_DL_URL: 'https://api.github.com/repos/balena-os/wifi-connect/releases/40990455'
+        TARGET_PLATFORM: ${TARGET_PLATFORM:-linux/arm/v6}
