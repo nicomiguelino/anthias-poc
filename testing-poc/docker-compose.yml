@@ -1,10 +1,10 @@
 version: "2"
 services:
-  mock-sandbox:
-    image: mock-sandbox
+  test-main:
+    image: nicomiguelino/test-main
     build:
       context: .
-      dockerfile: docker/Dockerfile.python
+      dockerfile: Dockerfile.test
     command: bash
     stdin_open: true
     tty: true
