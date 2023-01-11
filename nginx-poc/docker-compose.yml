@@ -2,7 +2,7 @@ version:  "2"
 services:
   nginx-poc:
     build:
-      context: ./nginx_poc
+      context: .
       dockerfile: Dockerfile.nginx
     command: "/usr/sbin/nginx -g 'daemon off;'"
     image: nginx-poc

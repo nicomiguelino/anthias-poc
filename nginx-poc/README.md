@@ -4,7 +4,8 @@
 ## Building the container
 
 ```bash
-docker compose -f docker-compose.nginx.yml build
+cd nginx-poc/
+docker compose build
 ```
 
 ## Starting the container
@@ -12,7 +13,8 @@ docker compose -f docker-compose.nginx.yml build
 Run the following command:
 
 ```bash
-docker compose -f docker-compose.nginx.yml up -d
+cd nginx-poc/
+docker compose up -d
 ```
 
 Go to your browser and go to `http://${HOST_IP}`. You should
