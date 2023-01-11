@@ -11,4 +11,4 @@ archive_url=$(curl -sL $WC_DL_URL | jq -r "$jq_filter")
 archive_file=$(basename $archive_url)
 
 wget $archive_url && \
-tar -xvz -C /usr/src/app -f $archive_file
+    tar -xvz -C /usr/src/app -f $archive_file
