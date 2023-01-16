@@ -1,5 +1,6 @@
 import time
 
+
 class Calculator:
     def sum(self, a, b, sleep=False):
         if sleep:
