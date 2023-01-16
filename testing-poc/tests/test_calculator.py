@@ -26,7 +26,7 @@ class TestCalculator(TestCase):
     @patch('src.calculator.time.sleep', side_effect=(lambda _: None))
     def test_sum_3(self, mock_sleep):
         self.assertEqual(self.calc.sum(4, 3, sleep=True), 7)
-        mock_sleep.assert_called_once()
+        mock_sleep.assert_not_called()
 
     @patch('src.calculator.Calculator.sum', side_effect=mock_sum)
     def test_sum_4(self, sum):
