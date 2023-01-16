@@ -1,5 +1,5 @@
 from unittest import TestCase
-from calculator import Calculator
+from src.calculator import Calculator
 
 class TestCalculator(TestCase):
     def setUp(self):

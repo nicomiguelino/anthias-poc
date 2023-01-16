@@ -1,7 +1,6 @@
 import unittest
 from datetime import datetime
-from nose.plugins.attrib import attr
-from mock import MagicMock, Mock
+from unittest.mock import MagicMock, Mock
 from requests.exceptions import Timeout
 from src.my_calendar import get_holidays, is_weekday
 
