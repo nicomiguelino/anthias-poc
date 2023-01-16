@@ -21,17 +21,18 @@ jobs:
       - name: 'Checkout the repository.'
         uses: actions/checkout@v3
 
-      - name: 'Go inside the testing directory.'
-        run: cd testing-poc
-
       - name: 'Build the testing container.'
         run: docker compose build
+        working-directory: ./testing-poc
 
       - name: 'Start the testing container.'
         run: docker compose up -d
+        working-directory: ./testing-poc
 
       - name: 'Run the tests inside the container.'
         run: docker compose exec test-main python3 -m unittest
+        working-directory: ./testing-poc
 
       - name: 'Stop the testing container.'
         run: docker compose down
+        working-directory: ./testing-poc
