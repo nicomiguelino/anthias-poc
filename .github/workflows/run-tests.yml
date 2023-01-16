@@ -1,0 +1,37 @@
+name: 'Run Unit Tests'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/**'
+      - '!**/README.md'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/**'
+      - '!**/README.md'
+
+jobs:
+  run-tests:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Checkout the repository.'
+        uses: actions/checkout@v3
+
+      - name: 'Go inside the testing directory.'
+        run: cd testing-poc
+
+      - name: 'Build the testing container.'
+        run: docker compose build
+
+      - name: 'Start the testing container.'
+        run: docker compose up -d
+
+      - name: 'Run the tests inside the container.'
+        run: docker compose exec test-main python3 -m unittest
+
+      - name: 'Stop the testing container.'
+        run: docker compose down
