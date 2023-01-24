@@ -1,5 +1,6 @@
 # @TODO: Refactor common lines into a base image.
-FROM balenalib/raspberrypi3:buster
+# FROM balenalib/raspberrypi3:buster
+FROM debian:buster
 
 RUN apt-get -y update && \
     apt-get install -y --no-install-recommends \

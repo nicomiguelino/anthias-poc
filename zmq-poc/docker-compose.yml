@@ -4,9 +4,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.pub.zmq
+    networks:
+      default:
+      krusty-krab-2:
+        aliases:
+          - 'krusty-krab-2'
+          - 'krusty-krab-3'
     command: bash
     image: zmq-pub
-    network_mode: host
+    # TODO: Uncomment the option below if you want to experiment.
+    # network_mode: host
     restart: always
     tty: true
     volumes:
@@ -15,11 +22,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.sub.zmq
+    networks:
+      default:
+      krusty-krab-2:
     command: bash
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    # TODO: Uncomment this option if you want to experiment.
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
     image: zmq-sub
     restart: always
     tty: true
     volumes:
       - ./:/usr/src/app
+networks:
+  krusty-krab-2:

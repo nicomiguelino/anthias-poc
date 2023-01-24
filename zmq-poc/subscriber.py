@@ -10,16 +10,17 @@ context = zmq.Context()
 socket = context.socket(zmq.SUB)
 
 '''
-Use the line below if connecting to a container using
+Use the any of the following below if connecting to a container using
 bridged networking.
 '''
+socket.connect(f'tcp://krusty-krab-2:{PORT}')
 # socket.connect(f'tcp://zmq-publisher:{PORT}')
 
 '''
 Use the line below if connecting to a container using
 host networking.
 '''
-socket.connect(f'tcp://host.docker.internal:{PORT}')
+# socket.connect(f'tcp://host.docker.internal:{PORT}')
 
 socket.subscribe(topic=TOPIC)
 
