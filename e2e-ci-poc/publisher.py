@@ -38,6 +38,12 @@ SONGS = [
         'artist': 'Duran Duran',
         'year': '1983',
     },
+    {
+        'song': 'Planet Earth',
+        'album': 'Duran Duran',
+        'artist': 'Duran Duran',
+        'year': '1981',
+    },
 ]
 
 context = zmq.Context()
