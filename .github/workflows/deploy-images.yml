@@ -1,0 +1,22 @@
+name: 'Deploy Docker Images'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'e2e-ci-poc/**'
+      - '!**/README.md'
+
+jobs:
+  build-images:
+    defaults:
+      run:
+        working-directory: ./e2e-ci-poc
+    steps:
+      - name: 'Checkout the repository.'
+        uses: actions/checkout@v3
+      - name: 'Display the current working directory.'
+        run: |
+          pwd
+
