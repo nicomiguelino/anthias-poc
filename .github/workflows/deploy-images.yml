@@ -6,10 +6,12 @@ on:
       - main
     paths:
       - 'e2e-ci-poc/**'
+      - '.github/workflows/deploy-images.yml'
       - '!**/README.md'
 
 jobs:
   build-images:
+    runs-on: 'ubuntu-latest'
     defaults:
       run:
         working-directory: ./e2e-ci-poc
