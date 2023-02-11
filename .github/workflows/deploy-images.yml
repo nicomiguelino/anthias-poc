@@ -18,3 +18,9 @@ jobs:
     steps:
       - name: 'Checkout the repository.'
         uses: actions/checkout@v3
+      - name: 'Set shorthand Git hash'
+        run: |
+          echo "GIT_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: 'Display shorthand Git hash'
+        run: |
+          echo "GIT_SHORT_HASH: $GIT_SHORT_HASH"
