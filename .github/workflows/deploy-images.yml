@@ -35,6 +35,7 @@ jobs:
             base
             publisher
             subscriber
+            narnia
           )
 
           # TODO: Remove the two echo statements below after debugging.
