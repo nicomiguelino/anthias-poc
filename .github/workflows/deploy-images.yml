@@ -13,7 +13,7 @@ jobs:
   build-images:
     strategy:
       matrix:
-        board: [pi3, pi4]
+        board: ['pi4']
     runs-on: 'ubuntu-latest'
     defaults:
       run:
@@ -24,7 +24,30 @@ jobs:
       - name: 'Set variables necessary for tagging Docker images.'
         run: |
           echo "GIT_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-      - name: Print out some values (for debugging purposes).
+      - name: 'Display details of the current working directory.'
         run: |
+          echo "Current Working Directory: $PWD"
+          echo "Directory Contents: "
+          ls -la
+      - name: 'Build the Docker images.'
+        run: |
+          services=(
+            base
+            publisher
+            subscriber
+          )
+
+          # TODO: Remove the two echo statements below after debugging.
           echo "matrix.board: ${{ matrix.board }}"
-          echo "GIT_SHORT_HASH: $GIT_SHORT_HASH"
+          echo "matrix.board: ${ matrix.board }"
+
+          for container in ${services[@]}; do
+            path=$(readlink -f "Dockerfile.${container}")
+
+            if [[ ! -f "${path}" ]]; then
+              continue
+              echo "Path $path does not exist. Skipping..."
+            fi
+
+            echo "Dockerfile Path: ${path}"
+          done
