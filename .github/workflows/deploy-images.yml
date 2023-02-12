@@ -39,7 +39,6 @@ jobs:
 
           # TODO: Remove the two echo statements below after debugging.
           echo "matrix.board: ${{ matrix.board }}"
-          echo "matrix.board: ${ matrix.board }"
 
           for container in ${services[@]}; do
             path=$(readlink -f "Dockerfile.${container}")
