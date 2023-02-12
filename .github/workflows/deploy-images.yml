@@ -21,6 +21,8 @@ jobs:
       - name: 'Set shorthand Git hash'
         run: |
           echo "GIT_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+          # Try to display the value of the environment variable.
+          echo "GIT_SHORT_HASH: $GIT_SHORT_HASH"
       - name: 'Display shorthand Git hash'
         run: |
           echo "GIT_SHORT_HASH: $GIT_SHORT_HASH"
