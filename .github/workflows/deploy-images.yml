@@ -44,8 +44,8 @@ jobs:
             path=$(readlink -f "Dockerfile.${container}")
 
             if [[ ! -f "${path}" ]]; then
-              continue
               echo "Path $path does not exist. Skipping..."
+              continue
             fi
 
             echo "Dockerfile Path: ${path}"
