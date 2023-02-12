@@ -13,7 +13,7 @@ jobs:
   build-images:
     strategy:
       matrix:
-        board: ['pi4']
+        board: ['pi3', 'pi4']
     runs-on: 'ubuntu-latest'
     defaults:
       run:
@@ -27,13 +27,14 @@ jobs:
       - name: 'Set the variables necessary for building and tagging Docker images.'
         run: |
           echo "DOCKER_TAG_1=latest-${{ matrix.board }}" >> $GITHUB_ENV
-          echo "DOCKER_TAG_2=$GIT_SHORT_HASH-{{ matrix.board }}" >> $GITHUB_ENV
+          echo "DOCKER_TAG_2=$GIT_SHORT_HASH-${{ matrix.board }}" >> $GITHUB_ENV
           echo "TARGET_PLATFORM=linux/arm/v7" >> $GITHUB_ENV
       - name: Display defined environment variables.
         run: |
           echo "GIT_SHORT_HASH: $GIT_SHORT_HASH"
           echo "DOCKER_TAG_1: $DOCKER_TAG_1"
           echo "DOCKER_TAG_2: $DOCKER_TAG_2"
+          echo "matrix.board: ${{ matrix.board }}"
           echo "TARGET_PLATFORM: $TARGET_PLATFORM"
       - name: 'Build the Docker images.'
         run: |
