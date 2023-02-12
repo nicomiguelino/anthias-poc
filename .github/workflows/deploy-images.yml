@@ -21,14 +21,20 @@ jobs:
     steps:
       - name: 'Checkout the repository.'
         uses: actions/checkout@v3
-      - name: 'Set variables necessary for tagging Docker images.'
+      - name: 'Define a variable for storing the shorthand commit hash.'
         run: |
           echo "GIT_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-      - name: 'Display details of the current working directory.'
+      - name: 'Set the variables necessary for building and tagging Docker images.'
         run: |
-          echo "Current Working Directory: $PWD"
-          echo "Directory Contents: "
-          ls -la
+          echo "DOCKER_TAG_1=latest-${{ matrix.board }}" >> $GITHUB_ENV
+          echo "DOCKER_TAG_2=$GIT_SHORT_HASH-{{ matrix.board }}" >> $GITHUB_ENV
+          echo "TARGET_PLATFORM=linux/arm/v7" >> $GITHUB_ENV
+      - name: Display defined environment variables.
+        run: |
+          echo "GIT_SHORT_HASH: $GIT_SHORT_HASH"
+          echo "DOCKER_TAG_1: $DOCKER_TAG_1"
+          echo "DOCKER_TAG_2: $DOCKER_TAG_2"
+          echo "TARGET_PLATFORM: $TARGET_PLATFORM"
       - name: 'Build the Docker images.'
         run: |
           services=(
@@ -44,5 +50,16 @@ jobs:
               continue
             fi
 
-            echo "Dockerfile Path: ${path}"
+            echo "Building container [${container}] for ${{ matrix.board }}..."
+
+            docker buildx build \
+                --platform "${TARGET_PLATFORM}" \
+                --output "type=image" \
+                --build-arg "BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
+                -f "${path}" \
+                -t "nicomiguelino/ci-ex-${container}:$DOCKER_TAG_1" \
+                -t "nicomiguelino/ci-ex-${container}:$DOCKER_TAG_2" .
           done
+      - name: 'Get details of the freshly-build Docker images.'
+        run: |
+          docker image ls
