@@ -35,17 +35,12 @@ jobs:
             base
             publisher
             subscriber
-            narnia
           )
-
-          # TODO: Remove the two echo statements below after debugging.
-          echo "matrix.board: ${{ matrix.board }}"
 
           for container in ${services[@]}; do
             path=$(readlink -f "Dockerfile.${container}")
 
             if [[ ! -f "${path}" ]]; then
-              echo "Path $path does not exist. Skipping..."
               continue
             fi
 
