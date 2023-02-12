@@ -11,6 +11,9 @@ on:
 
 jobs:
   build-images:
+    strategy:
+      matrix:
+        board: [pi3, pi4]
     runs-on: 'ubuntu-latest'
     defaults:
       run:
@@ -18,11 +21,10 @@ jobs:
     steps:
       - name: 'Checkout the repository.'
         uses: actions/checkout@v3
-      - name: 'Set shorthand Git hash'
+      - name: 'Set variables necessary for tagging Docker images.'
         run: |
           echo "GIT_SHORT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-          # Try to display the value of the environment variable.
-          echo "GIT_SHORT_HASH: $GIT_SHORT_HASH"
-      - name: 'Display shorthand Git hash'
+      - name: Print out some values (for debugging purposes).
         run: |
+          echo "matrix.board: ${{ matrix.board }}"
           echo "GIT_SHORT_HASH: $GIT_SHORT_HASH"
