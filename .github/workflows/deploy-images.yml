@@ -66,7 +66,7 @@ jobs:
 
             docker buildx build \
                 --platform "${TARGET_PLATFORM}" \
-                --output "type=image" \
+                --output "type=image,push=true" \
                 --build-arg "BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
                 -f "${path}" \
                 -t "nicomiguelino/ci-ex-${container}:$DOCKER_TAG_1" \
