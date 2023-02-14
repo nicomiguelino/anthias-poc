@@ -92,5 +92,5 @@ jobs:
         id: build
         with:
           balena_token: ${{ secrets.BALENA_TOKEN }}
-          fleet: nicomiguelino/ci-ex-${{ matrix.board }}
+          fleet: gh_nicomiguelino/ci-ex-${{ matrix.board }}
           source: balena-deploy
