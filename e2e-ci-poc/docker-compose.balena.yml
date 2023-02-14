@@ -1,0 +1,10 @@
+version: "2"
+services:
+  publisher:
+    image: ci-ex-publisher:BOARD_TAG
+    command: bash
+    tty: true
+  subscriber:
+    image: ci-ex-subscriber:BOARD_TAG
+    command: bash
+    tty: true

@@ -75,3 +75,15 @@ jobs:
       - name: 'Get details of the freshly-build Docker images.'
         run: |
           docker image ls
+      - name: 'Prepare Balena file'
+        run: |
+          # Generate a docker-compose file for Balena with the correct board.
+          mkdir -p balena-deploy
+
+          # Generate the docker-compose file.
+          cat docker-compose.balena.yml | \
+            sed "s/BOARD_TAG/$DOCKER_TAG_2/" \
+            > balena-deploy/docker-compose.yml
+      - name: 'Inspect the Balena file.'
+        run: |
+          cat balena-deploy/docker-compose.yml
