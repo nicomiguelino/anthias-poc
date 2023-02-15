@@ -1,0 +1,15 @@
+name: "E2E CI Experiment"
+type: "sw.application"
+description: >-
+  Playing around with an E2E CI pipeline (from build to deployment)
+post-provisioning: >-
+
+  ## Introduction
+
+  Feel free to look around.
+
+assets:
+  repository:
+    type: "blob.asset"
+    data:
+      url: "https://github.com/nicomiguelino/anthias-poc/"

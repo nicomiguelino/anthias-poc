@@ -80,6 +80,9 @@ jobs:
           # Generate a docker-compose file for Balena with the correct board.
           mkdir -p balena-deploy
 
+          # Copy in the balena.yml file.
+          cp balena.yml balena-deploy
+
           # Generate the docker-compose file.
           cat docker-compose.balena.yml | \
             sed "s/BOARD_TAG/$DOCKER_TAG_2/" \
