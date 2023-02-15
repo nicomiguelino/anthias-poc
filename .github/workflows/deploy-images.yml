@@ -66,6 +66,7 @@ jobs:
 
             docker buildx build \
                 --platform "${TARGET_PLATFORM}" \
+                --platform "linux/arm/v8" \
                 --output "type=image,push=true" \
                 --build-arg "BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
                 -f "${path}" \
