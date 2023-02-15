@@ -100,4 +100,4 @@ jobs:
         with:
           balena_token: ${{ secrets.BALENA_TOKEN }}
           fleet: gh_nicomiguelino/ci-ex-${{ matrix.board }}
-          source: balena-deploy/
+          source: e2e-ci-poc/balena-deploy
