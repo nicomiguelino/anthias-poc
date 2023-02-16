@@ -1,0 +1,10 @@
+version: "2"
+services:
+  argparse:
+    build:
+      args:
+        MAGIC_VALUE_1: 'Wee'
+      context: .
+      dockerfile: Dockerfile.argparse
+    command: bash
+    tty: true
