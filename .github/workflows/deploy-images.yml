@@ -70,8 +70,8 @@ jobs:
                 --output "type=image,push=true" \
                 --build-arg "BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
                 -f "${path}" \
-                -t "nicomiguelino/ci-ex-${container}:$DOCKER_TAG_1" \
-                -t "nicomiguelino/ci-ex-${container}:$DOCKER_TAG_2" .
+                -t "nicomiguelino/ci-ex-${container}:$DOCKER_TAG_1" .
+                # -t "nicomiguelino/ci-ex-${container}:$DOCKER_TAG_2" .
           done
       - name: 'Get details of the freshly-build Docker images.'
         run: |
@@ -86,7 +86,7 @@ jobs:
 
           # Generate the docker-compose file.
           cat docker-compose.balena.yml | \
-            sed "s/BOARD_TAG/$DOCKER_TAG_2/" \
+            sed "s/BOARD_TAG//" \
             > balena-deploy/docker-compose.yml
       - name: 'Inspect the Balena file.'
         run: |
