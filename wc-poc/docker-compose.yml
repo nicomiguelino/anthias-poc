@@ -1,0 +1,12 @@
+version: "2"
+services:
+  wifi-connect:
+    image: nicomiguelino/wc-poc
+    build: .
+    network_mode: host
+    privileged: true
+    volumes:
+      - ./scripts/start.sh:/usr/src/app/scripts/start.sh
+      - type: bind
+        source: /run/dbus/system_bus_socket
+        target: /run/dbus/system_bus_socket
