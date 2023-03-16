@@ -10,7 +10,7 @@ services:
             - NET_ADMIN
         environment:
             DBUS_SYSTEM_BUS_ADDRESS: "unix:path=/host/run/dbus/system_bus_socket"
-    debian:
-      image: balenalib/raspberrypi3-debian:buster
+    ubuntu:
+        image: balenalib/raspberrypi3-debian:buster
         command: bash
         tty: true
