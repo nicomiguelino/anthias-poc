@@ -31,3 +31,5 @@ fi
 
 # Start your application here.
 # sleep infinity
+
+exit 0
