@@ -30,4 +30,4 @@ else
 fi
 
 # Start your application here.
-# sleep infinity
+sleep infinity
